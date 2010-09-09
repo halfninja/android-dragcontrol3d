@@ -10,7 +10,8 @@ import android.view.View.OnTouchListener;
 /**
  * Takes touch input and converts dragging into a rotation
  * value, which lets you rotate an object naturally with
- * your finger.
+ * your finger. It assumes a camera looking down Z, so drag
+ * events are in the X-Y plane.
  * 
  * USAGE:
  * In the setup of your Activity:
@@ -20,6 +21,9 @@ import android.view.View.OnTouchListener;
  * 
  * When rendering:
  * Quaternion rotation = dragControl.currentRotation();
+ *
+ * Wherever possible this class reuses objects to avoid
+ * frequent object creation.
  */
 public final class DragControl implements OnTouchListener {
 
